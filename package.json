@@ -1,0 +1,17 @@
+{
+  "name": "my-postinstall-pkg",
+  "version": "1.0.0",
+  "description": "A package that runs a postinstall script",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielvfo/my-postinstall-pkg.git"
+  },
+  "author": "Daniel Vieira",
+  "license": "MIT",
+  "keywords": [],
+  "type": "commonjs"
+}
