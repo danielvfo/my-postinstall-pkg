@@ -4,7 +4,7 @@
   "description": "A package that runs a postinstall script",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node scripts/postinstall.js"
+    "postinstall": "./scripts/postinstall.sh"
   },
   "repository": {
     "type": "git",
