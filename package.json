@@ -1,6 +1,6 @@
 {
   "name": "@danielvfo/my-postinstall-pkg",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A package that runs a postinstall script",
   "main": "index.js",
   "scripts": {
