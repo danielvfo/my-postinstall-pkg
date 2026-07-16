@@ -1,6 +1,9 @@
 {
-  "name": "my-postinstall-pkg",
+  "name": "@danielvfo/my-postinstall-pkg",
   "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "description": "A package that runs a postinstall script",
   "main": "index.js",
   "scripts": {
