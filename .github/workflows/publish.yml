@@ -31,7 +31,7 @@ jobs:
       - name: Publish to npmjs via Trusted Publishing
         run: |
           unset NODE_AUTH_TOKEN || true
-          npm publish --access public --provenance --registry=https://registry.npmjs.org/
+          npm publish --access public --provenance --registry=https://registry.npmjs.org/ --verbose
         # NO env block here whatsoever
 
       # 2. Swap context and publish to GitHub Packages
