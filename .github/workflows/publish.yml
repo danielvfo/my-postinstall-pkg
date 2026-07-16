@@ -10,26 +10,27 @@ jobs:
     permissions:
       contents: read
       packages: write 
-      id-token: write # <--- CRITICAL: Required for OIDC/Trusted Publishing
+      id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 1. Publish to the public npm registry using OIDC
+      # 1. Publish to npmjs using OIDC
+      # Omit registry-url so setup-node doesn't require a token
       - name: Set up Node.js for npmjs
         uses: actions/setup-node@v4
         with:
-          node-version: '24.x' # Required for Trusted Publishing
-          registry-url: 'https://registry.npmjs.org/'
+          node-version: '24.x'
 
       - name: Install dependencies
         run: npm ci
 
       - name: Publish to npmjs via Trusted Publishing
-        # --provenance cryptographically ties the package to this GH Action run
         run: npm publish --access public --provenance
-        # Notice: NO NODE_AUTH_TOKEN environment variable needed here!
+        env:
+          # Forcefully unset the token so npm is forced to use OIDC
+          NODE_AUTH_TOKEN: ''
 
       # 2. Swap the registry context and publish to GitHub Packages
       - name: Set up Node.js for GitHub Packages
