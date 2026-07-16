@@ -1,6 +1,6 @@
 {
   "name": "@danielvfo/my-postinstall-pkg",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
