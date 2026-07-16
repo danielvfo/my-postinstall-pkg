@@ -23,6 +23,9 @@ jobs:
           node-version: '24.x'
           registry-url: 'https://registry.npmjs.org/'
 
+      - name: Fix setup-node OIDC bug
+        run: sed -i '/_authToken/d' "${NPM_CONFIG_USERCONFIG:-$HOME/.npmrc}"
+
       - name: Update npm to latest
         run: npm install -g npm@latest
 
