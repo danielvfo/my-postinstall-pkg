@@ -35,11 +35,15 @@ jobs:
         # NO env block here whatsoever
 
       # 2. Swap context and publish to GitHub Packages
+      - name: Rename package for GitHub Packages
+        run: npm pkg set name="@danielvfo/my-postinstall-pkg"
+
       - name: Set up Node.js for GitHub Packages
         uses: actions/setup-node@v4
         with:
           node-version: '24.x'
           registry-url: 'https://npm.pkg.github.com/'
+          scope: '@danielvfo'
 
       - name: Publish to GitHub Packages
         run: npm publish
